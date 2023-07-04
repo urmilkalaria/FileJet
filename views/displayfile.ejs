@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileJet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container align-items-center justify-content-center">
+        <h1 class="text-center">Your File is ready to Download (Link will expire in 24 hours)</h1>
+        <br><br>
+        <input type="text" id="path" hidden value="<%=path%>"/>
+        <h2 class="text-center">File Info</h2>
+        <h2 class="text-center"><%=path%></h2>
+        <br><br>
+        <div class="form-group container">
+            <button onclick="download()" class="btn btn-info btn-block">Download File</button> 
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+    function download(){
+        window.open('/download?path=/public/uploads/' + $("#path").val());
+        location.reload()
+    }
+</script>
+</html>
